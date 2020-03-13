@@ -1,0 +1,18 @@
+version: "3"
+
+services:
+  flask_server:
+    #Only restsart if the container stops with an error code
+    restart: on-failure
+
+    build: .
+
+    image: adoption_site:v1
+
+    dns:
+      - 8.8.8.8
+
+    network_mode: "bridge"
+
+    ports:
+      - "3006:5000"

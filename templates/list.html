@@ -1,0 +1,27 @@
+{% extends "base.html" %}
+{% block content %}
+
+{% for mess in get_flashed_messages()  %}
+<div class="alert alert-warning alert-dismissible fade show" role="alert">
+  <button type="button" class="close" data-dismiss="alert" aria-label="Close" class="fade close">
+    <span aria-hidden="true">&times;</span>
+  </button>
+  {{mess}}
+</div>
+{% endfor %}
+
+<div class="jumbotron">
+  <h1>Here is a list of all available puppies and owners.</h1>
+  <ul>
+
+    {% for pup in entities['puppies']  %}
+    <li>{{pup}}</li>
+    {% endfor %}
+
+    {% for own in entities['owners']  %}
+    <li>{{own}}</li>
+    {% endfor %}
+  </ul>
+
+</div>
+{% endblock %}
